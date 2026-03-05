@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Robbert | Y2K Portfolio</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portfolio of Daniel Robbert: Viral Content Strategist, YouTube Growth Expert, and App Developer.">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background overlay for scanlines -->
+    <div class="scanlines"></div>
+
+    <main class="desktop">
+        <!-- Marquee Header -->
+        <div class="marquee-container">
+            <marquee scrollamount="8">🔥 WELCOME TO THE CYBERSPACE OF DANIEL ROBBERT // VIRAL CONTENT STRATEGIST // OVER
+                1 BILLION YOUTUBE VIEWS 🔥</marquee>
+        </div>
+
+        <div class="icons-grid">
+            <div class="desktop-icon" onclick="openWindow('about-window')">
+                <img src="https://win98icons.alexmeub.com/icons/png/directory_explorer-5.png" alt="My Computer">
+                <span>About.exe</span>
+            </div>
+            <div class="desktop-icon" onclick="openWindow('experience-window')">
+                <img src="https://win98icons.alexmeub.com/icons/png/gears-0.png" alt="Experience">
+                <span>Experience.txt</span>
+            </div>
+            <div class="desktop-icon" onclick="openWindow('projects-window')">
+                <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" alt="Projects">
+                <span>Projects.app</span>
+            </div>
+            <a href="https://www.youtube.com/@itsdaboyzz" target="_blank" class="desktop-icon">
+                <img src="https://win98icons.alexmeub.com/icons/png/msie1-4.png" alt="YouTube">
+                <span>DaBoyz.url</span>
+            </a>
+            <a href="https://apps.apple.com/gb/app/mobmaps/id6753965737" target="_blank" class="desktop-icon">
+                <img src="https://win98icons.alexmeub.com/icons/png/phone-0.png" alt="MobMaps">
+                <span>MobMaps.url</span>
+            </a>
+        </div>
+
+        <!-- About Window -->
+        <div id="about-window" class="win98-window draggable" style="top: 10%; left: 10%;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="https://win98icons.alexmeub.com/icons/png/directory_explorer-5.png" alt="icon">
+                    <span>About_Me.exe</span>
+                </div>
+                <div class="window-controls">
+                    <button class="win-btn close-btn" onclick="closeWindow('about-window')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <h1>Daniel Robbert</h1>
+                <p><strong>Viral Content Strategist & YouTube Growth Expert</strong></p>
+                <p>California based creator with a proven track record of generating over 1 Billion YouTube views.
+                    Expert in audience retention, algorithm optimization, and cross-platform brand storytelling.</p>
+                <div class="skills-box">
+                    <h3>Core Stats:</h3>
+                    <ul>
+                        <li>YouTube Strategy: Algorithm Hacking, SEO, A/B Testing</li>
+                        <li>Content Creation: Video Editing, Scriptwriting, On-Camera</li>
+                        <li>Product Dev: Market Research, iOS App Launch (MobMaps)</li>
+                        <li>Tools: Premiere Pro, Capcut, Canva, Photoshop, FL Studio, Excel, Cursor, Claude Code,
+                            OpenClaw, AI & Automations</li>
+                    </ul>
+                </div>
+                <p>Contact: dnlrbbrt@gmail.com | 925-550-7623</p>
+                <div class="visitor-counter">
+                    VISITORS: <span class="counter-digits">001337</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Window -->
+        <div id="experience-window" class="win98-window draggable" style="top: 15%; left: 45%;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="https://win98icons.alexmeub.com/icons/png/gears-0.png" alt="icon">
+                    <span>Experience.txt</span>
+                </div>
+                <div class="window-controls">
+                    <button class="win-btn close-btn" onclick="closeWindow('experience-window')">X</button>
+                </div>
+            </div>
+            <div class="window-body terminal-style">
+                <p>C:\> run experience.bat</p>
+                <br>
+                <h3>> FOUNDER & LEAD CREATOR @ DaBoyz (@ItsDaBoyzz)</h3>
+                <p class="date">[2024 - Present]</p>
+                <ul>
+                    <li>0 to 150k YouTube Subs in &lt; 1 Year.</li>
+                    <li>10k+ Instagram Followers.</li>
+                    <li>Lead Video Production & Operations.</li>
+                </ul>
+                <br>
+                <h3>> HEAD OF SOCIAL MEDIA & CONTENT MGR @ Braille Skateboarding</h3>
+                <p class="date">[2019 - 2024]</p>
+                <ul>
+                    <li>1 Billion+ YouTube Views.</li>
+                    <li>2.5M to 5M YouTube Subs.</li>
+                    <li>1 Million+ TikTok Followers.</li>
+                    <li>1 Million+ Instagram Followers.</li>
+                </ul>
+                <p class="blink-cursor">_</p>
+            </div>
+        </div>
+
+        <!-- Projects Window -->
+        <div id="projects-window" class="win98-window draggable" style="top: 30%; left: 30%; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" alt="icon">
+                    <span>Projects.app</span>
+                </div>
+                <div class="window-controls">
+                    <button class="win-btn close-btn" onclick="closeWindow('projects-window')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="project-card">
+                    <h3>📱 MobMaps (iOS App) - Founder</h3>
+                    <p>Skate Spot Finder App launched in 2025.</p>
+                    <ul>
+                        <li>GPS-based skateboarding spot locator.</li>
+                        <li>Acquired 200 initial daily users in month 1 organically.</li>
+                        <li>Defined MVP and oversaw technical implementation.</li>
+                    </ul>
+                    <a href="https://apps.apple.com/gb/app/mobmaps/id6753965737" target="_blank"
+                        class="cyber-btn">Download on App Store</a>
+                </div>
+                <hr class="win-divider">
+                <div class="project-card">
+                    <h3>🌐 Web Development</h3>
+                    <p>Designed and built custom websites incorporating modern tech and retro visual aesthetics.</p>
+                </div>
+                <img src="https://web.archive.org/web/20090829011124/http://geocities.com/CollegePark/Square/7666/underconstruction_c3.gif"
+                    alt="Under Construction" class="under-const">
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-btn win-btn" onclick="toggleStartMenu()">
+            <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="Start">
+            <span style="font-weight: bold; margin-left: 4px;">Start</span>
+        </button>
+        <div class="taskbar-divider"></div>
+        <div class="open-apps" id="taskbar-apps">
+            <!-- Populated via JS -->
+        </div>
+        <div class="system-tray">
+            <span id="clock" class="clock">12:00 PM</span>
+        </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div id="start-menu" class="start-menu hidden">
+        <div class="start-sidebar">
+            <p class="sidebar-text">Windows 98</p>
+        </div>
+        <div class="start-items">
+            <a href="mailto:dnlrbbrt@gmail.com" class="start-item">
+                <img src="https://win98icons.alexmeub.com/icons/png/message_envelope_open-0.png" alt="Email"> Email Me
+            </a>
+            <div class="start-divider"></div>
+            <div class="start-item" onclick="openWindow('projects-window'); toggleStartMenu();">
+                <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" alt="Programs"> Programs
+            </div>
+            <div class="start-divider"></div>
+            <div class="start-item shut-down">
+                <img src="https://win98icons.alexmeub.com/icons/png/shut_down_normal-2.png" alt="Shutdown"> Shut Down...
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
