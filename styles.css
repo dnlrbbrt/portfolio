@@ -112,6 +112,8 @@ body {
     min-width: 300px;
     max-width: 500px;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
 }
 
 .window-header {
@@ -168,6 +170,9 @@ body {
     padding: 15px;
     font-size: 14px;
     line-height: 1.4;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 65vh;
 }
 
 .window-body h1 {
@@ -461,4 +466,67 @@ body {
     background: var(--win-border-dark);
     border-bottom: 1px solid #fff;
     margin: 2px 4px;
+}
+
+/* Resize handle */
+.resize-handle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    cursor: se-resize;
+    background: linear-gradient(135deg, transparent 40%, var(--win-border-dark) 40%, var(--win-border-dark) 50%, #fff 50%, #fff 60%, var(--win-border-dark) 60%);
+    z-index: 1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+
+    .win98-window {
+        min-width: 0;
+        max-width: calc(100vw - 20px);
+    }
+
+    .window-body {
+        max-height: 60vh;
+        font-size: 13px;
+    }
+
+    .icons-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: auto;
+        gap: 12px;
+    }
+
+    .desktop-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .desktop-icon span {
+        font-size: 11px;
+    }
+
+    .taskbar-item {
+        min-width: 60px;
+        max-width: 90px;
+        font-size: 10px;
+    }
+
+    .window-header {
+        padding: 6px 4px;
+        font-size: 13px;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .close-btn {
+        padding: 4px 10px;
+        font-size: 13px;
+    }
 }
