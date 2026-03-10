@@ -1,11 +1,12 @@
-/* Core Y2K & Win98 Variables */
+/* Windows XP Luna Theme */
 :root {
-    --win-bg: #c0c0c0;
-    --win-border-light: #dfdfdf;
-    --win-border-dark: #808080;
-    --win-border-darker: #000000;
-    --win-title-bg: #000080;
-    --win-title-gradient: linear-gradient(90deg, #000080, #1084d0);
+    --win-bg: #ece9d8;
+    --win-border-light: #ffffff;
+    --win-border-dark: #7b8398;
+    --win-border-darker: #0a246a;
+    --win-title-bg: #0a246a;
+    --win-title-gradient: linear-gradient(90deg, #0a246a 0%, #2b6fce 55%, #a6caf0 100%);
+    --win-title-inactive: linear-gradient(90deg, #7a8bb5 0%, #b8c8e8 100%);
     --win-title-text: #ffffff;
     --win-text: #000000;
 
@@ -25,25 +26,11 @@ body {
     background-image: url('bliss.jpg');
     background-size: cover;
     background-position: center;
-    font-family: 'Tahoma', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 11px;
     color: var(--win-text);
     overflow: hidden;
     height: 100vh;
-    cursor: url('https://win98icons.alexmeub.com/cursors/arrow.cur'), auto;
-}
-
-/* Subtle animated scanlines for CRT effect */
-.scanlines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1));
-    background-size: 100% 4px;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.6;
 }
 
 .desktop {
@@ -57,14 +44,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100px;
+    width: 80px;
 }
 
 .desktop-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: url('https://win98icons.alexmeub.com/cursors/pointer.cur'), pointer;
+    cursor: pointer;
     text-decoration: none;
     color: white;
 }
@@ -72,31 +59,31 @@ body {
 .desktop-icon img {
     width: 32px;
     height: 32px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.6));
 }
 
 .desktop-icon span {
-    background: var(--win-title-bg);
     color: white;
-    padding: 2px 4px;
-    font-size: 12px;
-    border: 1px dotted transparent;
+    padding: 1px 3px;
+    font-size: 11px;
     text-align: center;
+    text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
+    border: 1px dotted transparent;
 }
 
 .desktop-icon:hover span {
-    border: 1px dotted white;
+    background: rgba(0, 0, 120, 0.4);
+    border: 1px dotted rgba(255,255,255,0.7);
 }
 
-/* Windows 98 Window Styling */
+/* XP Window */
 .win98-window {
     position: absolute;
     background: var(--win-bg);
-    border-top: 2px solid var(--win-border-light);
-    border-left: 2px solid var(--win-border-light);
-    border-bottom: 2px solid var(--win-border-darker);
-    border-right: 2px solid var(--win-border-darker);
-    box-shadow: inset -1px -1px var(--win-border-dark), inset 1px 1px #fff;
+    border: 3px solid #0a246a;
+    border-radius: 6px 6px 4px 4px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.4), inset 0 0 0 1px #a6caf0;
     min-width: 300px;
     max-width: 500px;
     z-index: 10;
@@ -105,16 +92,21 @@ body {
     overflow: hidden;
 }
 
+/* XP Title Bar */
 .window-header {
     background: var(--win-title-gradient);
     color: var(--win-title-text);
-    padding: 3px 2px 3px 3px;
+    padding: 4px 4px 4px 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
     font-size: 12px;
+    font-family: 'Tahoma', sans-serif;
     cursor: default;
+    border-radius: 3px 3px 0 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    min-height: 26px;
 }
 
 .window-title {
@@ -128,59 +120,87 @@ body {
     height: 16px;
 }
 
+/* XP-style generic button (used in taskbar etc) */
 .win-btn {
-    background: var(--win-bg);
-    border-top: 1px solid #fff;
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid var(--win-border-darker);
-    border-right: 1px solid var(--win-border-darker);
-    box-shadow: inset -1px -1px var(--win-border-dark);
+    background: linear-gradient(180deg, #fafafa 0%, #e4e0d4 100%);
+    border: 1px solid #7b8398;
+    border-radius: 3px;
     font-weight: bold;
-    padding: 2px 8px;
+    padding: 3px 10px;
     font-size: 11px;
-    cursor: url('https://win98icons.alexmeub.com/cursors/pointer.cur'), pointer;
+    cursor: pointer;
     color: var(--win-text);
+    font-family: 'Tahoma', sans-serif;
 }
 
 .win-btn:active {
-    border-top: 1px solid var(--win-border-darker);
-    border-left: 1px solid var(--win-border-darker);
-    border-bottom: 1px solid #fff;
-    border-right: 1px solid #fff;
-    box-shadow: inset 1px 1px var(--win-border-dark);
+    background: linear-gradient(180deg, #e4e0d4 0%, #fafafa 100%);
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
 }
 
+/* XP red close button */
 .close-btn {
-    padding: 1px 5px;
-    font-size: 10px;
+    background: linear-gradient(180deg, #f08080 0%, #c03030 100%);
+    border: 1px solid #8b1a1a;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    padding: 1px 7px;
+    font-size: 11px;
+    cursor: pointer;
+    text-shadow: none;
+    min-width: 21px;
+    min-height: 18px;
+}
+
+.close-btn:hover {
+    background: linear-gradient(180deg, #ff9090 0%, #d04040 100%);
+}
+
+.close-btn:active {
+    background: linear-gradient(180deg, #c03030 0%, #f08080 100%);
 }
 
 .window-body {
     padding: 15px;
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 13px;
+    line-height: 1.5;
     flex: 1;
     min-height: 0;
     overflow-y: auto;
     max-height: 65vh;
+    background: var(--win-bg);
 }
 
 .window-body h1 {
-    font-size: 24px;
-    margin-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 
 .skills-box {
-    margin: 15px 0;
+    margin: 12px 0;
     padding: 10px;
     background: white;
-    border: inset 2px;
+    border: 2px inset #ece9d8;
+    border-color: #7b8398 #fff #fff #7b8398;
+}
+
+.skills-box h3 {
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .skills-box ul {
-    list-style-type: square;
-    margin-left: 20px;
-    margin-top: 5px;
+    list-style-type: disc;
+    margin-left: 18px;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.skills-box ul li {
+    margin-bottom: 4px;
 }
 
 .visitor-counter {
@@ -192,152 +212,173 @@ body {
 
 .counter-digits {
     background: black;
-    color: red;
-    padding: 2px 5px;
-    letter-spacing: 2px;
-    border: inset 2px;
+    color: #00ff00;
+    padding: 2px 6px;
+    letter-spacing: 3px;
+    font-family: 'VT323', monospace;
 }
 
-/* Terminal Style Window */
+/* Terminal Style (Experience window) */
 .terminal-style {
-    background: var(--cyber-dark);
-    color: var(--cyber-green);
-    font-family: 'VT323', monospace;
-    font-size: 18px;
-    line-height: 1.4;
-    border: inset 2px;
+    background: #0d0d0d;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.5;
     padding: 15px;
 }
 
 .terminal-style h3 {
-    color: var(--cyber-pink);
-    margin-bottom: 5px;
-    font-size: 18px;
+    color: #00ccff;
+    margin-bottom: 4px;
+    font-size: 13px;
 }
 
 .terminal-style .date {
-    color: yellow;
-    margin-bottom: 12px;
-    font-size: 16px;
+    color: #ffff00;
+    margin-bottom: 10px;
+    font-size: 12px;
 }
 
 .terminal-style ul {
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .terminal-style ul li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .terminal-style ul li::before {
     content: "> ";
-    color: var(--cyber-green);
+    color: #00ff00;
 }
 
 .blink-cursor {
     animation: blink 1s step-end infinite;
+    color: #00ff00;
 }
 
 @keyframes blink {
-    50% {
-        opacity: 0;
-    }
+    50% { opacity: 0; }
 }
 
-/* Cyber Button */
+/* XP-style Button */
 .cyber-btn {
     display: inline-block;
     margin-top: 10px;
-    padding: 5px 10px;
-    background: var(--win-bg);
-    border-top: 2px solid #fff;
-    border-left: 2px solid #fff;
-    border-bottom: 2px solid var(--win-border-darker);
-    border-right: 2px solid var(--win-border-darker);
-    box-shadow: inset -1px -1px var(--win-border-dark);
+    padding: 4px 12px;
+    background: linear-gradient(180deg, #fafafa 0%, #e4e0d4 100%);
+    border: 1px solid #7b8398;
+    border-radius: 3px;
     color: var(--win-text);
     text-decoration: none;
     font-weight: bold;
-    font-family: inherit;
-    font-size: 12px;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.cyber-btn:hover {
+    background: linear-gradient(180deg, #dff0ff 0%, #c8def5 100%);
+    border-color: #0a246a;
 }
 
 .cyber-btn:active {
-    border-top: 2px solid var(--win-border-darker);
-    border-left: 2px solid var(--win-border-darker);
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
-    box-shadow: inset 1px 1px var(--win-border-dark);
+    background: linear-gradient(180deg, #e4e0d4 0%, #fafafa 100%);
 }
 
 .project-card {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
+}
+
+.project-card h3 {
+    font-size: 13px;
+    margin-bottom: 5px;
 }
 
 .project-card ul {
-    margin-left: 20px;
-    margin-top: 5px;
+    margin-left: 18px;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.project-card p {
+    font-size: 12px;
 }
 
 .win-divider {
     border: 0;
-    height: 2px;
-    background: var(--win-border-dark);
+    height: 1px;
+    background: #7b8398;
     border-bottom: 1px solid #fff;
-    margin: 15px 0;
+    margin: 12px 0;
 }
 
-.under-const {
-    display: block;
-    margin: 10px auto;
-}
-
-/* Taskbar */
+/* XP Taskbar */
 .taskbar {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100vw;
-    height: 32px;
-    background: var(--win-bg);
-    border-top: 2px solid #fff;
+    height: 36px;
+    background: linear-gradient(180deg, #3d85e0 0%, #245edb 8%, #1c55ca 92%, #1a50c4 100%);
+    border-top: 1px solid #5ba3f5;
     display: flex;
     align-items: center;
-    padding: 2px;
+    padding: 2px 4px;
     z-index: 100;
 }
 
+/* XP Green Start Button */
 .start-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    margin-right: 5px;
-    padding: 0 4px;
+    height: 28px;
+    margin-right: 6px;
+    padding: 0 10px 0 6px;
+    background: linear-gradient(180deg, #5bbf3c 0%, #3da020 40%, #2d8a0f 100%);
+    border: 1px solid #1e6b00;
+    border-radius: 0 12px 12px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: 'Tahoma', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.start-btn:hover {
+    background: linear-gradient(180deg, #6fd04e 0%, #4db82e 40%, #3a9e1a 100%);
+}
+
+.start-btn:active {
+    background: linear-gradient(180deg, #2d8a0f 0%, #3da020 100%);
 }
 
 .start-btn img {
-    height: 18px;
+    height: 16px;
+    margin-right: 4px;
 }
 
 .taskbar-divider {
-    width: 2px;
+    width: 1px;
     height: 24px;
-    background: var(--win-border-dark);
-    border-right: 1px solid #fff;
-    margin: 0 5px;
+    background: rgba(255,255,255,0.3);
+    margin: 0 4px;
 }
 
 .open-apps {
     flex-grow: 1;
     display: flex;
-    gap: 2px;
+    gap: 3px;
 }
 
 .taskbar-item {
-    padding: 2px 6px;
-    height: 24px;
+    padding: 2px 8px;
+    height: 26px;
     min-width: 100px;
     max-width: 150px;
     display: flex;
@@ -345,26 +386,26 @@ body {
     gap: 4px;
     font-size: 11px;
     font-weight: bold;
+    font-family: 'Tahoma', sans-serif;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    background: var(--win-bg);
-    border-top: 1px solid #fff;
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid var(--win-border-darker);
-    border-right: 1px solid var(--win-border-darker);
-    box-shadow: inset -1px -1px var(--win-border-dark);
-    cursor: default;
+    background: linear-gradient(180deg, #3d6fcc 0%, #2456bb 100%);
+    border: 1px solid #1a3d9b;
+    border-radius: 3px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+.taskbar-item:hover {
+    background: linear-gradient(180deg, #5080d8 0%, #3465cc 100%);
 }
 
 .taskbar-item.active {
-    border-top: 1px solid var(--win-border-darker);
-    border-left: 1px solid var(--win-border-darker);
-    border-bottom: 1px solid #fff;
-    border-right: 1px solid #fff;
-    box-shadow: inset 1px 1px var(--win-border-dark);
-    background: #dfdfdf;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(0, 0, 0, 0.1) 1px, rgba(0, 0, 0, 0.1) 2px);
+    background: linear-gradient(180deg, #1a45a8 0%, #2456bb 100%);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    border-color: #0f2d7a;
 }
 
 .taskbar-item img {
@@ -373,31 +414,32 @@ body {
 }
 
 .system-tray {
-    border-top: 1px solid var(--win-border-darker);
-    border-left: 1px solid var(--win-border-darker);
-    border-bottom: 1px solid #fff;
-    border-right: 1px solid #fff;
-    padding: 2px 8px;
-    height: 24px;
+    background: linear-gradient(180deg, #1c55ca 0%, #1450c0 100%);
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding: 2px 10px;
+    height: 100%;
     display: flex;
     align-items: center;
     margin-left: auto;
     font-size: 11px;
+    font-family: 'Tahoma', sans-serif;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
 
-/* Start Menu */
+/* XP Start Menu */
 .start-menu {
     position: fixed;
-    bottom: 32px;
+    bottom: 36px;
     left: 2px;
-    width: 180px;
-    background: var(--win-bg);
-    border-top: 2px solid #fff;
-    border-left: 2px solid #fff;
-    border-bottom: 2px solid var(--win-border-darker);
-    border-right: 2px solid var(--win-border-darker);
+    width: 200px;
+    background: white;
+    border: 2px solid #0a246a;
+    border-radius: 6px 6px 0 0;
     display: flex;
     z-index: 101;
+    box-shadow: 3px 0 8px rgba(0,0,0,0.3);
+    overflow: hidden;
 }
 
 .start-menu.hidden {
@@ -405,9 +447,9 @@ body {
 }
 
 .start-sidebar {
-    background: var(--win-title-gradient);
-    color: var(--win-title-text);
-    width: 28px;
+    background: linear-gradient(180deg, #2b6fce 0%, #0a246a 100%);
+    color: white;
+    width: 30px;
     display: flex;
     align-items: flex-end;
     padding-bottom: 5px;
@@ -418,14 +460,16 @@ body {
     transform-origin: left bottom;
     white-space: nowrap;
     font-weight: bold;
-    font-size: 16px;
-    margin-left: 20px;
+    font-size: 14px;
+    margin-left: 22px;
     margin-bottom: 8px;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
 }
 
 .start-items {
     flex-grow: 1;
-    padding: 2px;
+    padding: 4px 0;
     display: flex;
     flex-direction: column;
 }
@@ -433,16 +477,17 @@ body {
 .start-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 10px;
-    cursor: url('https://win98icons.alexmeub.com/cursors/pointer.cur'), pointer;
+    gap: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
     font-size: 12px;
+    font-family: 'Tahoma', sans-serif;
     color: var(--win-text);
     text-decoration: none;
 }
 
 .start-item:hover {
-    background: var(--win-title-bg);
+    background: #316ac5;
     color: white;
 }
 
@@ -452,10 +497,9 @@ body {
 }
 
 .start-divider {
-    height: 2px;
-    background: var(--win-border-dark);
-    border-bottom: 1px solid #fff;
-    margin: 2px 4px;
+    height: 1px;
+    background: #d4d0c8;
+    margin: 3px 6px;
 }
 
 /* Resize handle */
@@ -466,7 +510,7 @@ body {
     width: 16px;
     height: 16px;
     cursor: se-resize;
-    background: linear-gradient(135deg, transparent 40%, var(--win-border-dark) 40%, var(--win-border-dark) 50%, #fff 50%, #fff 60%, var(--win-border-dark) 60%);
+    background: linear-gradient(135deg, transparent 40%, #7b8398 40%, #7b8398 50%, #fff 50%, #fff 60%, #7b8398 60%);
     z-index: 1;
 }
 
@@ -483,14 +527,14 @@ body {
 
     .window-body {
         max-height: 60vh;
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .icons-grid {
         flex-direction: row;
         flex-wrap: wrap;
         width: auto;
-        gap: 12px;
+        gap: 14px;
     }
 
     .desktop-icon img {
