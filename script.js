@@ -20,7 +20,6 @@ function toggleStartMenu() {
     menu.classList.toggle('hidden');
 }
 
-// Close start menu when clicking outside
 document.addEventListener('click', (e) => {
     if(!e.target.closest('.start-btn') && !e.target.closest('.start-menu')) {
         document.getElementById('start-menu').classList.add('hidden');
@@ -65,19 +64,16 @@ const draggables = document.querySelectorAll('.draggable');
 draggables.forEach(draggable => {
     const header = draggable.querySelector('.window-header');
 
-    // Add resize handle
     const resizeHandle = document.createElement('div');
     resizeHandle.className = 'resize-handle';
     draggable.appendChild(resizeHandle);
 
-    // Bring to front on any interaction
     draggable.addEventListener('mousedown', () => bringToFront(draggable.id));
     draggable.addEventListener('touchstart', () => bringToFront(draggable.id), { passive: true });
 
     let isDragging = false, isResizing = false;
     let offsetX, offsetY, startW, startH, startX, startY;
 
-    // --- Drag ---
     function dragStart(cx, cy) {
         isDragging = true;
         offsetX = cx - draggable.getBoundingClientRect().left;
@@ -93,7 +89,6 @@ draggables.forEach(draggable => {
         dragStart(e.touches[0].clientX, e.touches[0].clientY);
     }, { passive: true });
 
-    // --- Resize ---
     function resizeStart(cx, cy) {
         isResizing = true;
         startW = draggable.offsetWidth;
@@ -112,7 +107,6 @@ draggables.forEach(draggable => {
         resizeStart(e.touches[0].clientX, e.touches[0].clientY);
     }, { passive: true });
 
-    // --- Move / Resize ---
     function onMove(cx, cy) {
         if (isDragging) {
             draggable.style.left = `${cx - offsetX}px`;
@@ -135,6 +129,90 @@ draggables.forEach(draggable => {
     function onEnd() { isDragging = false; isResizing = false; }
     document.addEventListener('mouseup', onEnd);
     document.addEventListener('touchend', onEnd);
+});
+
+// Draggable Desktop Icons
+const savedIconPositions = JSON.parse(localStorage.getItem('iconPositions') || '{}');
+
+const defaultPositions = [
+    { x: 20, y: 20 },
+    { x: 20, y: 100 },
+    { x: 20, y: 180 },
+    { x: 20, y: 260 },
+    { x: 20, y: 340 },
+    { x: 20, y: 420 },
+    { x: 20, y: 500 },
+];
+
+document.querySelectorAll('.desktop-icon').forEach((icon, index) => {
+    const id = `icon-${index}`;
+    icon.dataset.iconId = id;
+
+    const pos = savedIconPositions[id] || defaultPositions[index] || { x: 20, y: 20 + index * 80 };
+    icon.style.left = pos.x + 'px';
+    icon.style.top = pos.y + 'px';
+
+    let isDragging = false;
+    let hasMoved = false;
+    let startX, startY, startLeft, startTop;
+
+    function iconDragStart(cx, cy) {
+        isDragging = true;
+        hasMoved = false;
+        startX = cx;
+        startY = cy;
+        startLeft = parseInt(icon.style.left) || 0;
+        startTop = parseInt(icon.style.top) || 0;
+        icon.style.zIndex = 9998;
+        icon.style.opacity = '0.8';
+    }
+
+    function iconDragMove(cx, cy) {
+        if (!isDragging) return;
+        const dx = cx - startX;
+        const dy = cy - startY;
+        if (Math.abs(dx) > 4 || Math.abs(dy) > 4) hasMoved = true;
+        if (!hasMoved) return;
+        icon.style.left = (startLeft + dx) + 'px';
+        icon.style.top = (startTop + dy) + 'px';
+    }
+
+    function iconDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        icon.style.zIndex = '';
+        icon.style.opacity = '1';
+        if (hasMoved) {
+            savedIconPositions[id] = {
+                x: parseInt(icon.style.left),
+                y: parseInt(icon.style.top)
+            };
+            localStorage.setItem('iconPositions', JSON.stringify(savedIconPositions));
+        }
+    }
+
+    icon.addEventListener('mousedown', (e) => iconDragStart(e.clientX, e.clientY));
+    icon.addEventListener('touchstart', (e) => iconDragStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+
+    document.addEventListener('mousemove', (e) => iconDragMove(e.clientX, e.clientY));
+    document.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            iconDragMove(e.touches[0].clientX, e.touches[0].clientY);
+        }
+    }, { passive: false });
+
+    document.addEventListener('mouseup', iconDragEnd);
+    document.addEventListener('touchend', iconDragEnd);
+
+    // Block click if the icon was dragged
+    icon.addEventListener('click', (e) => {
+        if (hasMoved) {
+            e.stopPropagation();
+            e.preventDefault();
+            hasMoved = false;
+        }
+    }, true);
 });
 
 // Taskbar Sync
@@ -160,5 +238,4 @@ function updateTaskbar() {
     });
 }
 
-// Initialize taskbar on load
 updateTaskbar();

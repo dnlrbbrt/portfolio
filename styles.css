@@ -41,26 +41,34 @@ body {
 
 /* Desktop Icons */
 .icons-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .desktop-icon {
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 72px;
     cursor: pointer;
     text-decoration: none;
     color: white;
+    pointer-events: all;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .desktop-icon img {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 4px;
-    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.6));
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 .desktop-icon span {
@@ -68,13 +76,14 @@ body {
     padding: 1px 3px;
     font-size: 11px;
     text-align: center;
-    text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
+    text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 0 0 4px #000;
     border: 1px dotted transparent;
+    word-break: break-word;
 }
 
 .desktop-icon:hover span {
-    background: rgba(0, 0, 120, 0.4);
-    border: 1px dotted rgba(255,255,255,0.7);
+    background: rgba(0, 60, 180, 0.5);
+    border: 1px dotted rgba(255,255,255,0.8);
 }
 
 /* XP Window */
