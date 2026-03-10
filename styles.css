@@ -21,10 +21,10 @@
 }
 
 body {
-    background-color: #008080;
-    /* Classic Win98 Teal background */
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    /* Subtle starry texture */
+    background-color: #3a6b35;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Bliss_%28Windows_XP%29.png');
+    background-size: cover;
+    background-position: center;
     font-family: 'Tahoma', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--win-text);
     overflow: hidden;
@@ -46,21 +46,9 @@ body {
     opacity: 0.6;
 }
 
-/* Marquee Header */
-.marquee-container {
-    background: var(--cyber-dark);
-    color: var(--cyber-green);
-    font-family: 'VT323', monospace;
-    font-size: 1.5rem;
-    padding: 5px 0;
-    border-bottom: 3px solid var(--cyber-pink);
-    box-shadow: 0 0 10px var(--cyber-pink);
-}
-
 .desktop {
     position: relative;
-    height: calc(100vh - 70px);
-    /* Leave room for taskbar + marquee */
+    height: calc(100vh - 36px);
     padding: 20px;
 }
 
