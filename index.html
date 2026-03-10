@@ -50,6 +50,10 @@
                 <img src="https://win98icons.alexmeub.com/icons/png/briefcase-2.png" alt="Campaigns">
                 <span>Campaigns.doc</span>
             </div>
+            <div class="desktop-icon" onclick="openWindow('tech-window')">
+                <img src="https://win98icons.alexmeub.com/icons/png/computer_3-4.png" alt="Tech">
+                <span>TechWork.exe</span>
+            </div>
         </div>
 
         <!-- About Window -->
@@ -229,6 +233,71 @@
             </div>
         </div>
 
+        <!-- Tech Work Window -->
+        <div id="tech-window" class="win98-window draggable" style="top: 15%; left: 25%; display: none;">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="https://win98icons.alexmeub.com/icons/png/computer_3-4.png" alt="icon">
+                    <span>TechWork.exe</span>
+                </div>
+                <div class="window-controls">
+                    <button class="win-btn close-btn" onclick="closeWindow('tech-window')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <h1>Technical Work</h1>
+                <p><strong>Self-taught builder shipping real products and tools.</strong></p>
+                <hr class="win-divider">
+
+                <div class="project-card">
+                    <h3>🛠️ 30+ Custom Tools Built</h3>
+                    <p>Designed and shipped over 30 internal tools spanning content workflows, data pipelines, and productivity automation — going from idea to working product independently using AI-assisted development.</p>
+                </div>
+
+                <hr class="win-divider">
+
+                <div class="project-card">
+                    <h3>📱 iOS App — MobMaps (Founder)</h3>
+                    <p>Conceived, spec'd, and launched a GPS-based skate spot finder on the App Store. Defined the full product roadmap, coordinated development, and grew to 200+ daily active users organically in month one.</p>
+                </div>
+
+                <hr class="win-divider">
+
+                <div class="project-card">
+                    <h3>📈 Algorithmic Trading Bots</h3>
+                    <p>Built and deployed automated trading systems including a chaos-theory-based market analysis platform. Implemented regime detection models using HMM, KMeans, GMM, and Transformer architectures to generate LONG/SHORT/WAIT signals across SPY, QQQ, BTC, and more.</p>
+                </div>
+
+                <hr class="win-divider">
+
+                <div class="project-card">
+                    <h3>⚙️ Workflow Automation</h3>
+                    <p>Built end-to-end automations that eliminate repetitive manual work across content production, publishing, and operations — connecting APIs, triggers, and data transforms into reliable pipelines that run without intervention.</p>
+                </div>
+
+                <hr class="win-divider">
+
+                <div class="project-card">
+                    <h3>🤖 AI & LLM Integration</h3>
+                    <p>Hands-on experience integrating large language models into real workflows. Configured and deployed OpenClaw for agentic task execution, built Claude API-powered tools, and developed multi-step AI pipelines for content, research, and automation tasks.</p>
+                </div>
+
+                <hr class="win-divider">
+
+                <div class="project-card">
+                    <h3>🌐 Web Development</h3>
+                    <p>Built production websites from scratch including this portfolio — custom CSS, vanilla JS, responsive layout, and deployment via GitHub Pages.</p>
+                </div>
+
+                <hr class="win-divider">
+
+                <div class="project-card">
+                    <h3>🧰 Stack</h3>
+                    <p>Python · JavaScript · HTML/CSS · Git · Claude API · REST APIs · Cursor · OpenClaw · Make.com · iOS App Store deployment · GitHub Actions</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Taskbar -->
@@ -258,6 +327,9 @@
             <div class="start-divider"></div>
             <div class="start-item" onclick="openWindow('projects-window'); toggleStartMenu();">
                 <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-4.png" alt="Programs"> Programs
+            </div>
+            <div class="start-item" onclick="openWindow('tech-window'); toggleStartMenu();">
+                <img src="https://win98icons.alexmeub.com/icons/png/computer_3-4.png" alt="Tech"> Tech Work
             </div>
             <div class="start-divider"></div>
             <div class="start-item shut-down">
