@@ -160,6 +160,7 @@ body {
     text-shadow: none;
     min-width: 21px;
     min-height: 18px;
+    touch-action: manipulation;
 }
 
 .close-btn:hover {

@@ -47,6 +47,18 @@ function closeWindow(windowId) {
     }
 }
 
+// Fix close buttons on mobile (touchend fires more reliably than click on touch devices)
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.close-btn').forEach(btn => {
+        btn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr) new Function(onclickAttr)();
+        });
+    });
+});
+
 function openWindow(windowId) {
     const win = document.getElementById(windowId);
     if (win && window.innerWidth <= 768) {
