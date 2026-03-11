@@ -57,6 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (onclickAttr) new Function(onclickAttr)();
         });
     });
+
+    document.querySelectorAll('.cyber-btn').forEach(btn => {
+        btn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(btn.href, '_blank');
+        });
+    });
 });
 
 function openWindow(windowId) {
